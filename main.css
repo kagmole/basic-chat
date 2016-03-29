@@ -1,0 +1,9 @@
+/* Vendors' stylesheets import */
+
+@import url("node_modules/bootstrap/dist/css/bootstrap.min.css");
+
+/* Application's stylesheets import */
+
+@import url("assets/styles/bootstrap-overrides.css");
+@import url("assets/styles/bootstrap-additions.css");
+@import url("assets/styles/basic-chat.css");

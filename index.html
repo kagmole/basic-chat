@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" class="bootstrap-overrides">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<title>Basic chat</title>
+	
+	<meta name="description" content="Basic chat based on the AngularJS framework.">
+	<meta name="keywords" content="workshop,basic,chat">
+	<meta name="version" content="v1.0.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="icon" href="assets/images/favicon.ico">
+	
+	<!-- Scripts -->
+	
+	<!-- Polyfills -->
+	<!--[if lt IE 9]>
+		<script src="http://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+	<!-- AngularJS application last -->
+	<script src="basic-chat.js"></script>
+</head>
+<body ng-app="basicChatApp">
+	<div class="container" ng-controller="pageController">
+		<header class="page-header">
+			<h1>Basic chat – {{pageTitle}}</h1>
+		</header>
+		
+		<section class="row" ng-view>
+			<p>
+				<strong>Caramba!</strong><br>
+				<br>
+				This application <strong>needs</strong> JavaScript to be enabled to work properly!
+			</p>
+		</section>
+	</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{
+  "name": "workshop-basic-chat",
+  "version": "1.0.0",
+  "description": "Basic chat based on the AngularJS framework.",
+  "author": "kagmole (https://github.com/kagmole)",
+  "contributors": [
+    "Dany Jupille <dany.jupille@gmail.com>"
+  ],
+  "scripts": {
+	"start": "node_modules/.bin/http-server -a127.0.0.1 -p8080 -c-1 -o",
+    "test": "echo \"No test specified.\"",
+	"build": "node_modules/.bin/browserify -t browserify-css main.js -o basic-chat.js",
+	"watch": "node_modules/.bin/watchify -t browserify-css main.js -o basic-chat.js -v",
+	"build-min": "node_modules/.bin/browserify -t [browserify-css --minify=true] main.js -d -p [minifyify --no-map] -o basic-chat.js",
+	"build-dist": "node scripts/build-dist.js"
+  },
+  "main": "dist/basic-chat.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kagmole/basic-chat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kagmole/basic-chat/issues"
+  },
+  "keywords": [
+    "basic",
+    "chat",
+	"angularjs",
+	"workshop"
+  ],
+  "dependencies": {
+    "angular": "^1.5.2",
+    "angular-resource": "^1.5.2",
+    "angular-route": "^1.5.2",
+    "angular-ui-bootstrap": "^1.2.5",
+    "bootstrap": "^3.3.6",
+	"jquery": "^2.2.2"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+	"browserify-css": "^0.9.1",
+    "http-server": "^0.9.0",
+	"minifyify": "^7.3.2",
+	"shelljs": "^0.6.0",
+	"watchify": "^3.7.0"
+  },
+  "private": false,
+  "analyze": true,
+  "license": "MIT"
+}
