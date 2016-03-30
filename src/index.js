@@ -5,5 +5,5 @@
 // Source directories
 require('./chat/');
 require('./page/');
-require('./profile/');
 require('./shared/');
+require('./users/');
