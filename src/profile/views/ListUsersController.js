@@ -14,6 +14,8 @@ module.exports = [
 
 pageService.getPageScope().pageTitle = 'List users';
 
+$scope.users = UserResource.retrieveAll();
+
 /*----------------------------------------------------------------------------*\
 |                                                                              |
 |                                CONTROLLER END                                |

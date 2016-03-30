@@ -1,1 +1,9 @@
-<!-- TODO -->
+<ul ng-if="users.length > 0">
+	<li ng-repeat="user in users | orderBy : ['firstName', 'lastName']">
+		<a href="#/users/{{::user.userId}}">{{::user.firstName}} {{::user.lastName}}</a>
+	</li>
+</ul>
+<p ng-if="users.length === 0">
+	Sadly, nobody loves this chat. ;-;
+</p>
+<a href="#/users/new" class="btn btn-success" role="button">New user</a>

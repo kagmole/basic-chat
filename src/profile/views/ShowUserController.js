@@ -1,10 +1,11 @@
 'use strict';
 
 module.exports = [
+	'$routeParams',
 	'$scope',
 	'pageService',
 	'UserResource',
-	function($scope, pageService, UserResource) {
+	function($routeParams, $scope, pageService, UserResource) {
 		
 /*----------------------------------------------------------------------------*\
 |                                                                              |
@@ -13,6 +14,10 @@ module.exports = [
 \*----------------------------------------------------------------------------*/
 
 pageService.getPageScope().pageTitle = 'Show user';
+
+$scope.user = UserResource.retrieve({
+	userId: $routeParams.userId
+});
 
 /*----------------------------------------------------------------------------*\
 |                                                                              |
