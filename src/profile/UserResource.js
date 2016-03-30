@@ -2,7 +2,8 @@
 
 module.exports = [
 	'$resource',
-	function($resource) {
+	'properties',
+	function($resource, properties) {
 		var UserResource;
 		
 /*----------------------------------------------------------------------------*\
@@ -11,7 +12,26 @@ module.exports = [
 |                                                                              |
 \*----------------------------------------------------------------------------*/
 
-// TODO
+UserResource = $resource(properties.apiUrl + '/users/:userId', {
+	userId: '@userId'
+}, {
+	retrieveAll: {
+		method: 'GET',
+		isArray: true
+	},
+	retrieve: {
+		method: 'GET'
+	},
+	create: {
+		method: 'POST',
+	},
+	update: {
+		method: 'PATCH'
+	},
+	'delete': {
+		method: 'DELETE'
+	}
+});
 
 /*----------------------------------------------------------------------------*\
 |                                                                              |

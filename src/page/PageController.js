@@ -13,8 +13,6 @@ module.exports = [
 
 pageService.setPageScope($scope);
 
-// TODO
-
 /*----------------------------------------------------------------------------*\
 |                                                                              |
 |                                CONTROLLER END                                |

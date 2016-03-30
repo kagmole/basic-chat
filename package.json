@@ -7,7 +7,7 @@
     "Dany Jupille <dany.jupille@gmail.com>"
   ],
   "scripts": {
-	"start": "node_modules/.bin/http-server -a127.0.0.1 -p8080 -c-1 -o",
+	"start": "node_modules/.bin/http-server -a127.0.0.1 -p8000 -c-1 -o",
     "test": "echo \"No test specified.\"",
 	"build": "node_modules/.bin/browserify -t browserify-css main.js -o basic-chat.js",
 	"watch": "node_modules/.bin/watchify -t browserify-css main.js -o basic-chat.js -v",

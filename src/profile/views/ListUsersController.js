@@ -1,44 +1,24 @@
 'use strict';
 
 module.exports = [
-	'$resource',
-	'properties',
-	function($resource, properties) {
-		var MessageResource;
+	'$scope',
+	'pageService',
+	'UserResource',
+	function($scope, pageService, UserResource) {
 		
 /*----------------------------------------------------------------------------*\
 |                                                                              |
-|                                 CLOSURE BODY                                 |
+|                               CONTROLLER BODY                                |
 |                                                                              |
 \*----------------------------------------------------------------------------*/
 
-MessageResource = $resource(properties.apiUrl + '/messages/:messageId', {
-	messageId: '@messageId'
-}, {
-	retrieveAll: {
-		method: 'GET',
-		isArray: true
-	},
-	retrieve: {
-		method: 'GET'
-	},
-	create: {
-		method: 'POST',
-	},
-	update: {
-		method: 'PATCH'
-	},
-	'delete': {
-		method: 'DELETE'
-	}
-});
+pageService.getPageScope().pageTitle = 'List users';
 
 /*----------------------------------------------------------------------------*\
 |                                                                              |
-|                          CLOSURE END - RETURN HOOK                           |
+|                                CONTROLLER END                                |
 |                                                                              |
 \*----------------------------------------------------------------------------*/
 		
-		return MessageResource;
 	}
 ];

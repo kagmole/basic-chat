@@ -13,7 +13,27 @@ module.exports = [
 
 pageService = {};
 
-// TODO
+// Current user
+pageService._currentUser = null;
+
+pageService.getCurrentUser = function() {
+	return pageService._currentUser;
+};
+
+pageService.setCurrentUser = function(currentUser) {
+	pageService._currentUser = currentUser;
+};
+
+// Page scope
+pageService._pageScope = null;
+
+pageService.getPageScope = function() {
+	return pageService._pageScope;
+};
+
+pageService.setPageScope = function(pageScope) {
+	pageService._pageScope = pageScope;
+};
 
 /*----------------------------------------------------------------------------*\
 |                                                                              |

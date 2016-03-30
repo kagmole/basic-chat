@@ -1,44 +1,25 @@
 'use strict';
 
 module.exports = [
-	'$resource',
-	'properties',
-	function($resource, properties) {
-		var MessageResource;
+	'$scope',
+	'MessageResource',
+	'pageService',
+	'UserResource',
+	function($scope, MessageResource, pageService, UserResource) {
 		
 /*----------------------------------------------------------------------------*\
 |                                                                              |
-|                                 CLOSURE BODY                                 |
+|                               CONTROLLER BODY                                |
 |                                                                              |
 \*----------------------------------------------------------------------------*/
 
-MessageResource = $resource(properties.apiUrl + '/messages/:messageId', {
-	messageId: '@messageId'
-}, {
-	retrieveAll: {
-		method: 'GET',
-		isArray: true
-	},
-	retrieve: {
-		method: 'GET'
-	},
-	create: {
-		method: 'POST',
-	},
-	update: {
-		method: 'PATCH'
-	},
-	'delete': {
-		method: 'DELETE'
-	}
-});
+pageService.getPageScope().pageTitle = 'Let\'s chat!';
 
 /*----------------------------------------------------------------------------*\
 |                                                                              |
-|                          CLOSURE END - RETURN HOOK                           |
+|                                CONTROLLER END                                |
 |                                                                              |
 \*----------------------------------------------------------------------------*/
 		
-		return MessageResource;
 	}
 ];

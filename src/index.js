@@ -6,3 +6,4 @@
 require('./chat/');
 require('./page/');
 require('./profile/');
+require('./shared/');

@@ -2,7 +2,9 @@
 
 module.exports = [
 	'$scope',
-	function($scope) {
+	'pageService',
+	'UserResource',
+	function($scope, pageService, UserResource) {
 		
 /*----------------------------------------------------------------------------*\
 |                                                                              |
@@ -10,7 +12,7 @@ module.exports = [
 |                                                                              |
 \*----------------------------------------------------------------------------*/
 
-// TODO
+pageService.getPageScope().pageTitle = 'Show user';
 
 /*----------------------------------------------------------------------------*\
 |                                                                              |
