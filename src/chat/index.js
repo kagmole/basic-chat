@@ -7,5 +7,5 @@ var app = angular.module('basicChatApp');
 // Source files
 app.factory('MessageResource', require('./MessageResource.js'));
 
-// Source directories
+// Source folders
 require('./views/');

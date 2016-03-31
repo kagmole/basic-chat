@@ -2,7 +2,7 @@
 
 // [ src/ ]$
 
-// Source directories
+// Source folders
 require('./chat/');
 require('./page/');
 require('./shared/');

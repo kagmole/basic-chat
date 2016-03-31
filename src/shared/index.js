@@ -2,7 +2,7 @@
 
 // [ src/shared/ ]$
 
-// Source directories
+// Source folders
 require('./configurations/');
 require('./directives/');
 require('./miscellaneous/');

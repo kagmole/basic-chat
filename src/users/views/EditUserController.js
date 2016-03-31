@@ -1,11 +1,12 @@
 'use strict';
 
 module.exports = [
+	'$location',
 	'$routeParams',
 	'$scope',
 	'pageService',
 	'UserResource',
-	function($routeParams, $scope, pageService, UserResource) {
+	function($location, $routeParams, $scope, pageService, UserResource) {
 		
 /*----------------------------------------------------------------------------*\
 |                                                                              |
@@ -15,20 +16,53 @@ module.exports = [
 
 pageService.getPageScope().pageTitle = 'Edit user';
 
-$scope.user = UserResource.retrieve({
+$scope.userForm = {
+	errors: {},
+	values: {}
+};
+
+UserResource.retrieve({
 	userId: $routeParams.userId
-}, function() {
-	$scope.birthdayDate = new Date($scope.user.birthday);
+}, function(user) {
+	
+	$scope.userForm.values.firstName = user.firstName;
+	$scope.userForm.values.lastName = user.lastName;
+	$scope.userForm.values.birthday = new Date(user.birthday);
 });
 
-$scope.validateAndSend = function() {
+$scope.validateFormAndSend = function() {
 	
-	$scope.user.birthday = $scope.birthdayDate.toISOString().slice(0, 10);
+	// Validate form
+	var valid = true;
 	
-	$scope.user.$update({
-		userId: $scope.user.userId
+	for (var property in $scope.userForm.values) {
+		var value = $scope.userForm.values[property];
+		
+		if (!value) {
+			$scope.userForm.errors[property] = true;
+			
+			valid = false;
+		} else {
+			$scope.userForm.errors[property] = false;
+		}
+	}
+	
+	if (valid === false) {
+		return;
+	}
+	
+	var user = new UserResource();
+	
+	user.firstName = $scope.userForm.values.firstName;
+	user.lastName = $scope.userForm.values.lastName;
+	
+	// Date object -> 'yyyy-MM-dd'
+	user.birthday = $scope.userForm.values.birthday.toISOString().slice(0, 10);
+	
+	user.$update({
+		userId: $routeParams.userId
 	}, function() {
-		$location.path('/users/' + $scope.user.userId);
+		$location.path('/users/' + user.userId);
 	});
 };
 

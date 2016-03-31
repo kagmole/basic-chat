@@ -1,11 +1,12 @@
 'use strict';
 
 module.exports = [
+	'$location',
 	'$routeParams',
 	'$scope',
 	'pageService',
 	'UserResource',
-	function($routeParams, $scope, pageService, UserResource) {
+	function($location, $routeParams, $scope, pageService, UserResource) {
 		
 /*----------------------------------------------------------------------------*\
 |                                                                              |
@@ -18,6 +19,12 @@ pageService.getPageScope().pageTitle = 'Show user';
 $scope.user = UserResource.retrieve({
 	userId: $routeParams.userId
 });
+
+$scope.connect = function() {
+	pageService.setCurrentUser($scope.user);
+	
+	$location.path('/chat');
+};
 
 /*----------------------------------------------------------------------------*\
 |                                                                              |

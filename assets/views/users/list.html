@@ -1,5 +1,5 @@
 <ul ng-if="users.length > 0">
-	<li ng-repeat="user in users | orderBy : ['firstName', 'lastName']">
+	<li ng-repeat="user in users | orderBy: ['firstName', 'lastName']">
 		<a href="#/users/{{::user.userId}}">{{::user.firstName}} {{::user.lastName}}</a>
 	</li>
 </ul>
