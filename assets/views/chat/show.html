@@ -11,7 +11,7 @@
 	<div class="form-group">
 		<div class="input-group">
 			<input type="text" id="birthday" class="form-control"
-					ng-model="messageContent">
+					ng-model="messageContent" ng-keydown="$event.keyCode === 13 && sendMessage()">
 			
 			<span class="input-group-btn">
 				<button type="button" class="btn btn-success"

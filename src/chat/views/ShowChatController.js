@@ -1,12 +1,13 @@
 'use strict';
 
 module.exports = [
+	'$interval',
 	'$location',
 	'$scope',
 	'MessageResource',
 	'pageService',
 	'UserResource',
-	function($location, $scope, MessageResource, pageService, UserResource) {
+	function($interval, $location, $scope, MessageResource, pageService, UserResource) {
 		
 /*----------------------------------------------------------------------------*\
 |                                                                              |
@@ -24,6 +25,24 @@ pageService.getPageScope().pageTitle = 'Let\'s chat!';
 
 $scope.messages = MessageResource.retrieveAll();
 
+var afterDate = Date.now();
+
+$interval(function() {
+	MessageResource.retrieveAll({
+		after: afterDate
+	}, function(messages) {
+		
+		messages.forEach(function(message) {
+			
+			if (message.author.userId !== pageService.getCurrentUser().userId) {
+				$scope.messages.push(message);
+			}
+		});
+	});
+	
+	afterDate = Date.now();
+}, 1000);
+
 $scope.sendMessage = function() {
 	
 	if ($scope.messageContent) {
@@ -38,6 +57,8 @@ $scope.sendMessage = function() {
 			
 			$scope.messages.push(message);
 		})
+		
+		$scope.messageContent = '';
 	}
 };
 
