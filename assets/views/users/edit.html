@@ -1,0 +1,49 @@
+<form class="form-horizontal">
+	<div class="form-group"
+			ng-class="{'has-error': userForm.errors.firstName}">
+			
+		<label for="firstName" class="col-sm-2 control-label">First name</label>
+		<div class="col-sm-10">
+			<input type="text" id="firstName" class="form-control" placeholder="First name"
+					ng-model="userForm.values.firstName">
+		</div>
+	</div>
+	<div class="form-group"
+			ng-class="{'has-error': userForm.errors.lastName}">
+			
+		<label for="lastName" class="col-sm-2 control-label">Last name</label>
+		<div class="col-sm-10">
+			<input type="text" id="lastName" class="form-control" placeholder="Last name"
+					ng-model="userForm.values.lastName">
+		</div>
+	</div>
+	<div class="form-group"
+			ng-class="{'has-error': userForm.errors.birthday}">
+			
+		<label for="birthday" class="col-sm-2 control-label">Birthday</label>
+		<div class="col-sm-10">
+			<div class="input-group">
+				<input type="text" id="birthday" class="form-control"
+						uib-datepicker-popup
+						datepicker-options="{
+							showWeeks: false
+						}"
+						ng-model="userForm.values.birthday"
+						close-text="Close"
+						is-open="birthdayPopupOpen">
+				
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-default"
+							ng-click="birthdayPopupOpen = !birthdayPopupOpen">
+							
+						<i class="glyphicon glyphicon-calendar"></i>
+					</button>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="form-group text-right">
+		<button type="button" class="btn btn-success" ng-click="validateFormAndSend()">Update</button>
+		<a href="#/users" class="btn btn-default" role="button">Cancel</a>
+	</div>
+</form>

@@ -1,0 +1,25 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">Ze chat</div>
+	<div class="panel-body" style="max-height: 40em;overflow-y: scroll;min-height: 40em">
+		<p ng-repeat="message in messages | orderBy: '-creationDate'">
+			<strong>{{message.author.username}}: </strong>{{message.content}}
+		</p>
+	</div>
+</div>
+
+<form class="form-horizontal">
+	<div class="form-group">
+		<div class="input-group">
+			<input type="text" id="birthday" class="form-control"
+					ng-model="messageContent" ng-keydown="$event.keyCode === 13 && sendMessage()">
+			
+			<span class="input-group-btn">
+				<button type="button" class="btn btn-success"
+						ng-click="sendMessage()">
+						
+					<i class="glyphicon glyphicon-comment"></i>
+				</button>
+			</span>
+		</div>
+	</div>
+</form>

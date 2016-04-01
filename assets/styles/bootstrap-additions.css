@@ -1,0 +1,75 @@
+/* Positions' styles */
+
+.position-relative {
+	position: relative;
+}
+
+/* Texts' styles */
+
+.text-left {
+	text-align: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-25-bigger {
+	font-size: 1.25em;
+	line-height: 1.25em;
+}
+
+.text-50-bigger {
+	font-size: 1.5em;
+	line-height: 1.5em;
+}
+
+.text-100-bigger {
+	font-size: 2em;
+	line-height: 2em;
+}
+
+.text-25-smaller {
+	font-size: 0.75em;
+	line-height: 0.75em;
+}
+
+.text-50-smaller {
+	font-size: 0.5em;
+	line-height: 0.5em;
+}
+
+/* Blocks' styles */
+
+.block-greedy-relative {
+	position: relative;
+	
+	height: 100%;
+	width: 100%;
+}
+
+.block-greedy-absolute {
+	position: absolute;
+	
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.block-vertical-align-wrapper:before {
+	display: inline-block;
+	content: '';
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -1em;
+}
+
+.block-vertical-align {
+	display: inline-block;
+	vertical-align: middle;
+}

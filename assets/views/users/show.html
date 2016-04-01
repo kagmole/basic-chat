@@ -1,0 +1,27 @@
+<table class="table">
+	<tbody>
+		<tr>
+			<td>Username</td>
+			<td>{{::user.username}}</td>
+		</tr>
+		<tr>
+			<td>First name</td>
+			<td>{{::user.firstName}}</td>
+		</tr>
+		<tr>
+			<td>Last name</td>
+			<td>{{::user.lastName}}</td>
+		</tr>
+		<tr>
+			<td>Birthday</td>
+			<td>{{::user.birthday | date : 'd MMM yyyy'}}</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<a class="btn btn-success" href="#/users/{{::user.userId}}/edit" role="button">Edit</a>
+				<a class="btn btn-info" role="button" ng-click="connect()">Connect</a>
+				<a href="#/users" class="btn btn-default" role="button">Return</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
